@@ -1,5 +1,8 @@
 package com.example.demo.appuser;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 /**
  * @author msermpezis-dev
  * @project demo

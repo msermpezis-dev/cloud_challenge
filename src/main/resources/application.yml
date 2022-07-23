@@ -8,9 +8,9 @@ server:
 
 spring:
   datasource:
-    password: Ju4st%$FKPaTS
+    password: "!Smanos1997"
     url: jdbc:mysql://localhost:3306/appointment_app_database
-    username: admin
+    username: root
   jpa:
     hibernate:
       ddl-auto: create-drop
