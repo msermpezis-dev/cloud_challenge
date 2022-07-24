@@ -16,18 +16,18 @@ import java.util.Optional;
 @AllArgsConstructor
 public class ConfirmationTokenService {
 
-    private final ConfirmationTokenRepository confirmationTokenRepository;
+    private final IConfirmationTokenRepository IConfirmationTokenRepository;
 
     public void saveConfirmationToken(ConfirmationToken token) {
-        confirmationTokenRepository.save(token);
+        IConfirmationTokenRepository.save(token);
     }
 
     public Optional<ConfirmationToken> getToken(String token) {
-        return confirmationTokenRepository.findByToken(token);
+        return IConfirmationTokenRepository.findByToken(token);
     }
 
     public int setConfirmedAt(String token) {
-        return confirmationTokenRepository.updateConfirmedAt(
+        return IConfirmationTokenRepository.updateConfirmedAt(
                 token, LocalDateTime.now());
     }
 

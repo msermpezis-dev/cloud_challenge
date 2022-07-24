@@ -5,6 +5,6 @@ package com.example.demo.email;
  * @project demo
  * @created 1:00 μ.μ. - 24/07/2022
  */
-public interface EmailSender {
+public interface IEmailSender {
     void send(String to, String email);
 }

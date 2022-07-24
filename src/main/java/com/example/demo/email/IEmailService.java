@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
@@ -19,9 +18,9 @@ import javax.mail.internet.MimeMessage;
  */
 @Service
 @AllArgsConstructor
-public class EmailService implements EmailSender {
+public class IEmailService implements IEmailSender {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(EmailService.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(IEmailService.class);
 
     private final JavaMailSender mailSender;
 
