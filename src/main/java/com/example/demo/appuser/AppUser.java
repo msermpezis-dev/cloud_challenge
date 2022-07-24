@@ -34,14 +34,22 @@ public class AppUser implements UserDetails {
             strategy = GenerationType.SEQUENCE,
             generator = "app_user_sequence"
     )
+    @Column(nullable = false)
     private Long id;
+    @Column(nullable = false)
     private String firstName;
+    @Column(nullable = false)
     private String lastName;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
+    @Column(nullable = false)
     private Boolean locked = false;
+    @Column(nullable = false)
     private Boolean enabled = false;
 
     public AppUser(String firstName, String lastName, String email, String password, AppUserRole appUserRole) {
