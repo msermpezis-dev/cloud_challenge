@@ -9,14 +9,14 @@ server:
 spring:
   datasource:
     password: "!Smanos1997"
-    url: jdbc:mysql://localhost:3306/appointment_app_database
+    url: jdbc:mysql://localhost:3306/consultdb
     username: root
   jpa:
     hibernate:
       ddl-auto: create-drop
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.MySQL5Dialect
         format_sql: true
     show-sql: true
 
