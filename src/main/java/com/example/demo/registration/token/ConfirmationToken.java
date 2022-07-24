@@ -33,7 +33,9 @@ public class ConfirmationToken {
     private Long id;
     @Column(nullable = false)
     private String token;
+    @Column(nullable = false)
     private LocalDateTime createdAt;
+    @Column(nullable = false)
     private LocalDateTime expiresAt;
     private LocalDateTime confirmedAt;
 
