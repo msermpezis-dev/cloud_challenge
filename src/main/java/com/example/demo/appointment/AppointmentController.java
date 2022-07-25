@@ -51,4 +51,6 @@ public class AppointmentController {
         return appointmentRepository.findAll();
     }
 
+
+
 }
