@@ -8,9 +8,9 @@ server:
 
 spring:
   datasource:
-    password: "!Smanos1997"
+    password: "password"
     url: jdbc:mysql://localhost:3306/consultdb
-    username: root
+    username: admin
   jpa:
     hibernate:
       ddl-auto: update

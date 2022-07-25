@@ -5,13 +5,19 @@ import com.example.demo.registration.token.ConfirmationToken;
 import com.example.demo.registration.token.ConfirmationTokenService;
 import com.example.demo.security.PasswordEncoder;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.persistence.Entity;
+import java.security.Principal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -66,4 +72,10 @@ public class AppUserService implements UserDetailsService {
     public int enableAppUser(String email) {
         return IAppUserRepository.enableAppUser(email);
     }
+
+
+    public String getEmailFromAuthentication(Authentication authentication) {
+        return authentication.getName();
+    }
+
 }

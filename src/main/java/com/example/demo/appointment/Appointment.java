@@ -17,15 +17,7 @@ import java.time.LocalDateTime;
 public class Appointment {
 
     @Id
-    @SequenceGenerator(
-            name = "appointment_sequence",
-            sequenceName = "appointment_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "appointment_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)

@@ -13,15 +13,7 @@ import java.time.LocalDateTime;
 public class PurchaseHistory {
 
     @Id
-    @SequenceGenerator(
-            name = "purchase_history_sequence",
-            sequenceName = "purchase_history_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "purchase_history_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)

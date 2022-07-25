@@ -24,4 +24,11 @@ public interface IAppUserRepository extends JpaRepository<AppUser, Long> {
     @Query("UPDATE AppUser a " +
             "SET a.enabled = TRUE WHERE a.email = ?1")
     int enableAppUser(String email);
+
+    @Transactional
+    @Query("SELECT id " +
+            "FROM AppUser " +
+            "WHERE email = ?1")
+    int getAppUserIdByEmail(String email);
+
 }
