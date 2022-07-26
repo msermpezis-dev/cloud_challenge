@@ -9,6 +9,11 @@ import javax.persistence.*;
 import java.sql.Time;
 import java.time.LocalDateTime;
 
+/**
+ * @author msermpezis-dev
+ * @project demo
+ */
+
 @Getter
 @Setter
 @EqualsAndHashCode

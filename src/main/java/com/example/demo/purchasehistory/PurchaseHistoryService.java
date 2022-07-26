@@ -5,6 +5,11 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+/**
+ * @author msermpezis-dev
+ * @project demo
+ */
+
 @Service
 public class PurchaseHistoryService implements IPurchaseHistoryService {
 

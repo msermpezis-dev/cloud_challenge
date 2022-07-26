@@ -10,6 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * @author msermpezis-dev
+ * @project demo
+ */
+
+
 @Repository
 @Transactional(readOnly = true)
 public interface IAppointmentRepository extends JpaRepository<Appointment, Long> {

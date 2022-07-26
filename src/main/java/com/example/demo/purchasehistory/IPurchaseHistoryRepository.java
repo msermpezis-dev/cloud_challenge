@@ -7,6 +7,11 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * @author msermpezis-dev
+ * @project demo
+ */
+
 public interface IPurchaseHistoryRepository extends JpaRepository<PurchaseHistory, Long> {
 
     @Override
