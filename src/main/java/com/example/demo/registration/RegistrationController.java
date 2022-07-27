@@ -15,14 +15,14 @@ import javax.servlet.Registration;
 @AllArgsConstructor
 public class RegistrationController {
 
-    private RegistrationService registrationService;
+    private final RegistrationService registrationService;
 
     @PostMapping
     public String register(@RequestBody RegistrationRequest request){
         return registrationService.register(request);
     }
 
-    @GetMapping(path = "confirm")
+    @GetMapping("/confirm")
     public String confirm(@RequestParam("token") String token){
         return registrationService.confirmToken(token);
     }

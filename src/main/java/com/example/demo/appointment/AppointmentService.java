@@ -1,5 +1,6 @@
 package com.example.demo.appointment;
 
+import com.example.demo.appuser.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +35,7 @@ public class AppointmentService implements IAppointmentService{
     public List<Appointment> findAllAppointments(){
         return appointmentRepository.findAll();
     }
+
+
 }
+

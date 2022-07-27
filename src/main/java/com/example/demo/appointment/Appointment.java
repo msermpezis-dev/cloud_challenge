@@ -1,5 +1,6 @@
 package com.example.demo.appointment;
 
+import com.example.demo.appuser.AppUserRole;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,4 +40,6 @@ public class Appointment {
 
     @Column(nullable = false)
     private LocalDateTime created_time;
+
+
 }

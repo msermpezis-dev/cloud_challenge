@@ -54,10 +54,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/api/v1/login/**").permitAll();
         http.authorizeRequests().antMatchers("/api/v1/registration/**").permitAll();
         // Gives access to specific api resources based on User Role
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/users/**").hasAnyAuthority("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/consultations/**").hasAnyAuthority("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/appointments/**").hasAnyAuthority("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/purchasehistory/**").hasAnyAuthority("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/users/**").hasAnyAuthority("USER","ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/consultations/all").hasAnyAuthority("USER","ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/appointments/**").hasAnyAuthority("USER","ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/purchasehistory/**").hasAnyAuthority("USER","ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/consultations/add").hasAnyAuthority("ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/v1/admin/**").hasAnyAuthority("ADMIN");
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(customAuthenticationFilter);

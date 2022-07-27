@@ -18,8 +18,20 @@ public class ConsultationService implements IConsultationService{
     }
 
     @Override
-    public Consultation saveConsultation(Consultation consultation){
-        return consultationRepository.save(consultation);
+    public String saveConsultation(ConsultationRequest request){
+        String title = request.getTitle();
+        Long consultation_id = Long.valueOf(consultationRepository.findByTitle(title));
+        if (consultation_id != null) {
+            throw new IllegalStateException("FAILED: title exists");
+        }
+        consultationRepository.save(
+        new Consultation(
+                title,
+                request.getDescription(),
+                request.getPrice()
+        )
+        );
+        return "consultation added";
     }
 
     @Override

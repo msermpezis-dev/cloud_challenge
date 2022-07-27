@@ -28,24 +28,37 @@ public class RegistrationService {
 
 
     public String register(RegistrationRequest request) {
-
-        boolean isValidEmail = emailValidator.test(request.getEmail());
-
+        String email = request.getEmail();
+        boolean isValidEmail = emailValidator.test(email);
+        String token;
         if (!isValidEmail) {
             throw new IllegalStateException("email not valid");
+        // MAKES A DEFAULT USER ADMIN/MANAGER
+        } else if (email.equals("emmanouil.sermpezis@gmail.com")) {
+            token = appUserService.signUpUser(
+                    new AppUser(
+                            request.getFirstName(),
+                            request.getLastName(),
+                            request.getEmail(),
+                            request.getPassword(),
+                            AppUserRole.ADMIN
+                    )
+            );
+        } else {
+            token = appUserService.signUpUser(
+                    new AppUser(
+                            request.getFirstName(),
+                            request.getLastName(),
+                            request.getEmail(),
+                            request.getPassword(),
+                            AppUserRole.USER
+                    )
+            );
         }
-        String token = appUserService.signUpUser(
-                new AppUser(
-                        request.getFirstName(),
-                        request.getLastName(),
-                        request.getEmail(),
-                        request.getPassword(),
-                        AppUserRole.USER
-                )
-        );
+
 
         String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
-        IEmailSender.send(request.getEmail(), buildEmail(request.getFirstName(), link));
+        IEmailSender.send(email, buildEmail(request.getFirstName(), link));
         return token;
     }
 
@@ -65,7 +78,6 @@ public class RegistrationService {
         if (expiredAt.isBefore(LocalDateTime.now())) {
             throw new IllegalStateException("token expired");
         }
-
         confirmationTokenService.setConfirmedAt(token);
         appUserService.enableAppUser(
                 confirmationToken.getAppUser().getEmail());
